@@ -1,0 +1,6 @@
+# Секреты Worker. В Cloudflare задаются командой: npx wrangler secret put <ИМЯ>
+# Для локального `wrangler dev` можно скопировать этот файл в .dev.vars (он в .gitignore).
+TELEGRAM_TOKEN=123456789:AA...        # токен бота от @BotFather
+TELEGRAM_CHAT_ID=000000000            # Chat Id владельца (бот отвечает только ему)
+RUN_KEY=random-string                 # ключ для служебных адресов /run и /setup
+WEBHOOK_SECRET=random-string          # секрет в заголовке webhook Telegram

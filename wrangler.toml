@@ -1,0 +1,21 @@
+name = "rostock-wohnung-bot"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# Источники разнесены по расписаниям, чтобы каждому хватало 10 мс CPU (см. CRON_TO_SOURCES в src/index.js).
+# Время — UTC. Все 5 бесплатных cron аккаунта заняты (3 здесь + 2 в iphone-alert-bot).
+[triggers]
+crons = ["*/10 * * * *", "3-59/10 * * * *", "6-59/10 * * * *"]
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "17f5d5abf80f4da0a959b180b39cae84"
+
+[observability]
+enabled = true
+
+# Секреты (не хранятся в этом файле):
+#   TELEGRAM_TOKEN   — токен бота от @BotFather
+#   TELEGRAM_CHAT_ID — ваш Chat Id
+#   RUN_KEY          — ключ для ручного запуска /run?key=...
+#   WEBHOOK_SECRET   — секрет, который Telegram присылает в заголовке webhook

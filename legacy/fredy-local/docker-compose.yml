@@ -1,0 +1,22 @@
+# Fredy — мониторинг квартир в Ростоке
+# Запуск:     docker compose up -d
+# Остановка:  docker compose down
+# Логи:       docker compose logs -f
+services:
+  fredy:
+    container_name: fredy
+    image: ghcr.io/orangecoding/fredy:29.2.1
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Berlin
+    volumes:
+      - ./conf:/conf
+      - ./db:/db
+    ports:
+      # только для этого компьютера, не для всей сети
+      - "127.0.0.1:9998:9998"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G

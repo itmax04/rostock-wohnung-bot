@@ -1,0 +1,12 @@
+{
+  "name": "rostock-wohnung-bot",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker: мониторинг квартир в Ростоке (лимит Jobcenter) → Telegram",
+  "scripts": {
+    "check": "node scripts/check.js",
+    "deploy": "npx --yes wrangler@4 deploy",
+    "tail": "npx --yes wrangler@4 tail rostock-wohnung-bot",
+    "districts": "python3 scripts/build_districts.py data/rostock-bezirke.geojson src/districts.js"
+  }
+}
